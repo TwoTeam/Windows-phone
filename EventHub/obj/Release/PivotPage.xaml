@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="EventHub.PivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EventHub"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:EventHub.Data"
+    mc:Ignorable="d"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <CommonNavigationTransitionInfo IsStaggeringEnabled="True"/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid>
+        <Pivot x:Uid="Pivot" Title="EventHub" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True">
+            <!--Pivot item one-->
+            <PivotItem
+                x:Uid="PivotItem1"
+                Margin="0,15,0,-0.5"
+                Header="Login"
+                DataContext="{Binding FirstGroup}"
+                d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+                CommonNavigationTransitionInfo.IsStaggerElement="True" Foreground="#FF756D6D">
+                <Grid Margin="0,0,0,0.333">
+                	<Button x:Name="Butn_login" Content="LOGIN" HorizontalAlignment="Stretch" Margin="10,0,10,22" VerticalAlignment="Bottom" Foreground="White"/>
+                	<TextBox x:Name="Text_email1" Margin="10,26,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" PlaceholderText="Username/Email"/>
+                	<PasswordBox x:Name="Pass" Margin="10,88,10,0" VerticalAlignment="Top" PlaceholderText="Password"/>
+                	<CheckBox x:Name="Check_remember" Content="Remember me" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Foreground="#FFF59D18"/>
+                	<TextBlock x:Name="Text_Forgot" HorizontalAlignment="Left" Margin="10,203,0,0" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Text="Forgot your password?" VerticalAlignment="Top" Foreground="#FFF59D18"/>
+                    
+                </Grid>
+
+            </PivotItem>
+
+            <!--Pivot item two-->
+            <PivotItem
+                x:Uid="PivotItem2"
+                Margin="10,15,10,-0.5"
+                Header="Sign up"
+                DataContext="{Binding SecondGroup}"
+                d:DataContext="{Binding Groups[1], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}">
+            	<Grid HorizontalAlignment="Left" Height="453" VerticalAlignment="Top" Width="380">
+            		<TextBox x:Name="Text_name" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Name"/>
+            		<TextBox x:Name="Text_surname" Margin="0,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Surname"/>
+            		<TextBox x:Name="Text_email" Margin="0,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email"/>
+            		<PasswordBox x:Name="Pass1" Margin="0,183,0,0" VerticalAlignment="Top" PlaceholderText="Password" HorizontalAlignment="Right" Width="380"/>
+            		<PasswordBox x:Name="Pass2" Margin="0,242,0,0" VerticalAlignment="Top" PlaceholderText="Repeat password"/>
+            		<Button x:Name="Butn_register" Content="REGISTER" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="10,0,10,1"/>
+            	</Grid>
+                <!--Double line list no text wrapping-->
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
+
