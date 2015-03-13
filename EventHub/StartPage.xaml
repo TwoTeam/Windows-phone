@@ -33,8 +33,7 @@
                 	<Button x:Name="Butn_login" Content="LOGIN" HorizontalAlignment="Stretch" Margin="10,0,10,22" VerticalAlignment="Bottom" Foreground="White" Tapped="Butn_login_Tapped"/>
                 	<TextBox x:Name="Text_email1" Margin="10,26,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" PlaceholderText="Username/Email"/>
                 	<PasswordBox x:Name="Pass" Margin="10,88,10,0" VerticalAlignment="Top" PlaceholderText="Password"/>
-                	<CheckBox x:Name="Check_remember" Content="Remember me" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Foreground="#FFF59D18"/>
-                	<TextBlock x:Name="Text_Forgot" HorizontalAlignment="Left" Margin="10,203,0,0" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Text="Forgot your password?" VerticalAlignment="Top" Foreground="#FFF59D18" Tapped="Text_Forgot_Tapped"/>
+                    <TextBlock x:Name="Text_Forgot" HorizontalAlignment="Left" Margin="10,168,0,0" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Text="Forgot your password?" VerticalAlignment="Top" Foreground="#FFF59D18" Tapped="Text_Forgot_Tapped"/>
 
                 </Grid>
 
@@ -48,12 +47,13 @@
                 DataContext="{Binding SecondGroup}"
                 d:DataContext="{Binding Groups[1], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}" HorizontalAlignment="Left" Width="380">
             	<Grid HorizontalAlignment="Left" Height="453" VerticalAlignment="Top" Width="392">
-            		<TextBox x:Name="Text_name" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Name"/>
-            		<TextBox x:Name="Text_surname" Margin="0,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Surname"/>
-            		<TextBox x:Name="Text_email" Margin="0,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email"/>
-            		<PasswordBox x:Name="Pass1" Margin="0,183,6,0" VerticalAlignment="Top" PlaceholderText="Password"/>
-            		<PasswordBox x:Name="Pass2" Margin="0,242,0,0" VerticalAlignment="Top" PlaceholderText="Repeat password"/>
-            		<Button x:Name="Butn_register" Content="REGISTER" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="35,0,54,1"/>
+            		<TextBox x:Name="Text_name" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Name"/>
+            		<TextBox x:Name="Text_surname" Margin="0,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Surname"/>
+            		<TextBox x:Name="Text_email" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email"/>
+            		<PasswordBox x:Name="Pass1" Margin="0,245,6,0" VerticalAlignment="Top" PlaceholderText="Password"/>
+            		<PasswordBox x:Name="Pass2" Margin="0,311,0,0" VerticalAlignment="Top" PlaceholderText="Repeat password"/>
+            		<Button x:Name="Butn_register" Content="REGISTER" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="35,0,54,1" Tapped="Butn_register_Tapped"/>
+                    <TextBox x:Name="Text_username" Margin="0,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Username"/>
             	</Grid>
                 <!--Double line list no text wrapping-->
             </PivotItem>

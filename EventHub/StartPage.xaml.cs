@@ -188,19 +188,19 @@ namespace EventHub
 
         private async void Butn_login_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            using (var client = new HttpClient()) ///krneki nardi client za povezavo
+            using (var client = new HttpClient()) ///naredi client za povezavo
             {
                 var values = new Dictionary<string, string>
                  {
-                     {"user",Text_email1.Text}, //tu more bit enako ko je na loginu email pol pa lahka das namest nikolaj.colic... neki.txt
-                     {"password",Pass.Password} // tu more bit pass pa pol lahka das isto ko prej krneki pać
+                     {"user",Text_email1.Text}, 
+                     {"password",Pass.Password} 
                  };
+
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync("http://veligovsek.si/events/apis/login.php", content);
                 var responsesString = await response.Content.ReadAsStringAsync();
-                //txt.Text = responsesString;
-                //.Text = responsesString.ToString();
                 JObject rezultati = JObject.Parse(responsesString);
+
                 foreach (var result in rezultati["result"])
                 {
                     try
@@ -217,54 +217,54 @@ namespace EventHub
                     }
                     catch (Exception ex)
                     {
-                       // output.Text = ex.ToString(); // error
+                        // output.Text = ex.ToString(); // error
                     }
                 }
-
-
-                /*response = new HttpResponseMessage();
-                 test.Text = "";
-                 string inputAddress = "http://obm.hostingsiteforfree.com/windows/login.php";
-
-                 Uri resourceUri;
-                 if (!Uri.TryCreate(inputAddress.Trim(), UriKind.Absolute, out resourceUri))
-                 {
-                     test.Text = "Invalid URI, please re-enter a valid URI";
-                     return;
-                 }
-                 if (resourceUri.Scheme != "http" && resourceUri.Scheme != "https")
-                 {
-                     test.Text = "Only 'http' and 'https' schemes supported. Please re-enter URI";
-                     return;
-                 }
-
-                 string responseBodyAsText;
-                 test.Text = "Waiting for response ...";
-
-                 try
-                 {
-                     response = await httpClient.GetAsync(resourceUri);
-
-                     response.EnsureSuccessStatusCode();
-
-                     responseBodyAsText = await response.Content.ReadAsStringAsync();
-
-                 }
-                 catch (Exception ex)
-                 {
-                     // Need to convert int HResult to hex string
-                     test.Text = "Error = " + ex.HResult.ToString("X") +
-                         "  Message: " + ex.Message;
-                     responseBodyAsText = "";
-                 }
-                 test.Text = response.StatusCode + " " + response.ReasonPhrase;
-
-                 // Format the HTTP response to display better
-                 responseBodyAsText = responseBodyAsText.Replace("<br>", Environment.NewLine);
-                 output.Text = responseBodyAsText;*/
             }
         }
 
 
-    }
+        private async void Butn_register_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+                using (var client = new HttpClient()) ///naredi client za povezavo
+                {
+                    var values = new Dictionary<string, string>
+                 {
+                     {"username",Text_username.Text},
+                     {"name",Text_name.Text}, 
+                     {"surname",Text_surname.Text}, 
+                     {"password1",Pass1.Password}, 
+                     {"password2",Pass2.Password}, 
+                     {"email",Text_email.Text} 
+                 };
+
+                    var content = new FormUrlEncodedContent(values);
+                    var response = await client.PostAsync("http://veligovsek.si/events/apis/register.php", content);
+                    var responsesString = await response.Content.ReadAsStringAsync();
+                    JObject rezultati = JObject.Parse(responsesString);
+
+                    foreach (var result in rezultati["result"])
+                    {
+                        try
+                        {
+                            if (result["response"].ToString().ToLower() == "true")
+                            {
+                                this.Frame.Navigate(typeof(BasicPage1));
+                            }
+                            else
+                            {
+                                var krnek = new MessageDialog(result["message"].ToString()); // error
+                                krnek.ShowAsync();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // output.Text = ex.ToString(); // error
+                        }
+                    }
+                }
+            }
+
+
+        }
     }
