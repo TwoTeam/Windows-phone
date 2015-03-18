@@ -19,42 +19,53 @@
         </TransitionCollection>
     </Page.Transitions>
 
-    <Grid>
+    
+    <Grid Margin="0,5.333,0,-0.333" Height="640" Width="400">
         <Pivot x:Uid="Pivot" Title="EventHub" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True">
             <!--Pivot item one-->
+            
             <PivotItem x:Name="Pivot_Login"
-                x:Uid="PivotItem1"
-                Margin="0,15,0,-0.5"
-                Header="Login"
-                DataContext="{Binding FirstGroup}"
-                d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
-                CommonNavigationTransitionInfo.IsStaggerElement="True" Foreground="#FF756D6D">
+				x:Uid="PivotItem1"
+				Margin="0,15,0,-0.5"
+				Header="Login"
+				DataContext="{Binding FirstGroup}"
+				d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+				CommonNavigationTransitionInfo.IsStaggerElement="True" Foreground="#FF756D6D">
                 <Grid Margin="0,0,0,0.333">
-                	<Button x:Name="Butn_login" Content="LOGIN" HorizontalAlignment="Stretch" Margin="10,0,10,22" VerticalAlignment="Bottom" Foreground="White" Tapped="Butn_login_Tapped"/>
-                	<TextBox x:Name="Text_email1" Margin="10,26,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" PlaceholderText="Username/Email"/>
-                	<PasswordBox x:Name="Pass" Margin="10,88,10,0" VerticalAlignment="Top" PlaceholderText="Password"/>
+                    <Button x:Name="Butn_login" Content="LOGIN" HorizontalAlignment="Stretch" Margin="35,0,40,22" VerticalAlignment="Bottom" Foreground="White" Tapped="Butn_login_Tapped"/>
+                    <TextBox x:Name="Text_email1" Margin="10,26,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" PlaceholderText="Username/Email"/>
+                    <PasswordBox x:Name="Pass" Margin="10,88,10,0" VerticalAlignment="Top" PlaceholderText="Password"/>
                     <TextBlock x:Name="Text_Forgot" HorizontalAlignment="Left" Margin="10,168,0,0" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Text="Forgot your password?" VerticalAlignment="Top" Foreground="#FFF59D18" Tapped="Text_Forgot_Tapped"/>
+                    <ProgressRing x:Name="progress1" HorizontalAlignment="Center" Margin="133,252,137,131" VerticalAlignment="Center" Width="130" Height="130"/>
 
                 </Grid>
 
             </PivotItem>
-
-            <!--Pivot item two-->
+                    <!--Pivot item two-->
             <PivotItem x:Name="Pivot_Signup"
-                x:Uid="PivotItem2"
-                Margin="10,15,0,-0.5"
-                Header="Sign up"
-                DataContext="{Binding SecondGroup}"
-                d:DataContext="{Binding Groups[1], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}" HorizontalAlignment="Left" Width="380">
-            	<Grid HorizontalAlignment="Left" Height="453" VerticalAlignment="Top" Width="392">
-            		<TextBox x:Name="Text_name" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Name"/>
-            		<TextBox x:Name="Text_surname" Margin="0,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Surname"/>
-            		<TextBox x:Name="Text_email" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email"/>
-            		<PasswordBox x:Name="Pass1" Margin="0,245,6,0" VerticalAlignment="Top" PlaceholderText="Password"/>
-            		<PasswordBox x:Name="Pass2" Margin="0,311,0,0" VerticalAlignment="Top" PlaceholderText="Repeat password"/>
-            		<Button x:Name="Butn_register" Content="REGISTER" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="35,0,54,1" Tapped="Butn_register_Tapped"/>
-                    <TextBox x:Name="Text_username" Margin="0,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Username"/>
-            	</Grid>
+				x:Uid="PivotItem2"
+				Margin="10,15,0,-0.5"
+				Header="Sign up"
+				DataContext="{Binding SecondGroup}"
+				d:DataContext="{Binding Groups[1], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}" HorizontalAlignment="Left" Width="380">
+
+                <ScrollViewer Margin="0,0,0,-120">
+
+                    <Grid Height="867" Width="392">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="11*"/>
+                            <ColumnDefinition Width="17*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="Text_name" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Name" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="Text_surname" Margin="0,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Surname" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="Text_email" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email" Grid.ColumnSpan="2"/>
+                        <PasswordBox x:Name="Pass1" Margin="0,245,6,0" VerticalAlignment="Top" PlaceholderText="Password" Grid.ColumnSpan="2"/>
+                        <PasswordBox x:Name="Pass2" Margin="0,311,0,0" VerticalAlignment="Top" PlaceholderText="Repeat password" Grid.ColumnSpan="2"/>
+                        <Button x:Name="Butn_register" Content="REGISTER" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35,361,54,0" Tapped="Butn_register_Tapped" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="Text_username" Margin="0,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Username" Grid.ColumnSpan="2"/>
+                        <ProgressRing x:Name="progress2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="133,457,0,0" VerticalAlignment="Top" Width="100"/>
+                    </Grid>
+                </ScrollViewer>
                 <!--Double line list no text wrapping-->
             </PivotItem>
         </Pivot>

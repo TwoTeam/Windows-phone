@@ -34,7 +34,7 @@
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <TextBlock x:Uid="Header" Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="Forgotten" Style="{ThemeResource HeaderTextBlockStyle}" Margin="0,-6.5,0,26.5" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" />
+            <TextBlock Text="Forgotten" Style="{ThemeResource HeaderTextBlockStyle}" Margin="0,-6.5,-0.167,26.5" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}" />
         </StackPanel>
 
         <!-- 
@@ -43,8 +43,9 @@
         -->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
             <TextBlock Height="51" Margin="0,10,0,0" TextWrapping="Wrap" Text="Enter your registered email and we'll send you new password." VerticalAlignment="Top" FontSize="18.667" Foreground="#FFF59D18"/>
-            <TextBox Margin="0,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email" Height="37"/>
-            <Button Content="SEND" HorizontalAlignment="Stretch" Margin="0,207,0,0" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="Mejl" Margin="0,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email" Height="37" />
+            <Button x:ConnectionId='1' x:Name="Butn_send" Content="SEND" HorizontalAlignment="Stretch" Margin="0,207,0,0" VerticalAlignment="Bottom"                          />
+            <TextBox x:Name="Usernejm" HorizontalAlignment="Left" Height="4" Margin="10,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" PlaceholderText="Username"/>
 
         </Grid>
     </Grid>

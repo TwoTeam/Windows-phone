@@ -3,6 +3,7 @@ using EventHub.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -29,7 +30,8 @@ using Microsoft.WindowsAzure;
 using System.Diagnostics;
 using Windows.Data.Json;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Windows.UI.Notifications;
+//using Microsoft.Phone.Scheduler;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -49,6 +51,7 @@ namespace EventHub
 
         public PivotPage()
         {
+
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
@@ -101,6 +104,7 @@ namespace EventHub
         /// <param name="sender">The source of the event; typically <see cref="NavigationHelper"/>.</param>
         /// <param name="e">Event data that provides an empty dictionary to be populated with
         /// serializable state.</param>
+        /// 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
             // TODO: Save the unique state of the page here.
@@ -188,6 +192,8 @@ namespace EventHub
 
         private async void Butn_login_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+
             using (var client = new HttpClient()) ///naredi client za povezavo
             {
                 var values = new Dictionary<string, string>
@@ -195,6 +201,9 @@ namespace EventHub
                      {"user",Text_email1.Text}, 
                      {"password",Pass.Password} 
                  };
+
+                progress1.IsActive = true;
+                progress1.Visibility = Visibility.Visible;
 
                 var content = new FormUrlEncodedContent(values);
                 var response = await client.PostAsync("http://veligovsek.si/events/apis/login.php", content);
@@ -208,24 +217,35 @@ namespace EventHub
                         if (result["response"].ToString().ToLower() == "true")
                         {
                             this.Frame.Navigate(typeof(BasicPage1));
+                            progress1.IsActive = false;
+                            progress1.Visibility = Visibility.Collapsed;
                         }
                         else
                         {
+                            progress1.IsActive = false;
+                            progress1.Visibility = Visibility.Collapsed;
                             var krnek = new MessageDialog(result["message"].ToString()); // error
                             krnek.ShowAsync();
                         }
                     }
                     catch (Exception ex)
                     {
-                        // output.Text = ex.ToString(); // error
+                        //output.Text = ex.ToString(); // error
                     }
                 }
             }
         }
 
 
-        private async void Butn_register_Tapped(object sender, TappedRoutedEventArgs e)
+
+        private async void Butn_register_Tapped(object sender, RoutedEventArgs e)
         {
+            string pattern = null;
+            pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            //string email = Text_email.Text;
+            if (Pass1.Password == Pass2.Password && Regex.IsMatch(Text_email.Text, pattern))
+            {
                 using (var client = new HttpClient()) ///naredi client za povezavo
                 {
                     var values = new Dictionary<string, string>
@@ -233,10 +253,13 @@ namespace EventHub
                      {"username",Text_username.Text},
                      {"name",Text_name.Text}, 
                      {"surname",Text_surname.Text}, 
-                     {"password1",Pass1.Password}, 
-                     {"password2",Pass2.Password}, 
+                     {"password", Pass1.Password}, 
                      {"email",Text_email.Text} 
                  };
+
+
+                    progress2.IsActive = true;
+                    progress2.Visibility = Visibility.Visible;
 
                     var content = new FormUrlEncodedContent(values);
                     var response = await client.PostAsync("http://veligovsek.si/events/apis/register.php", content);
@@ -245,14 +268,21 @@ namespace EventHub
 
                     foreach (var result in rezultati["result"])
                     {
+
                         try
                         {
+
                             if (result["response"].ToString().ToLower() == "true")
                             {
-                                this.Frame.Navigate(typeof(BasicPage1));
+                                progress2.IsActive = false;
+                                progress2.Visibility = Visibility.Collapsed;
+                                    var krnek = new MessageDialog(result["message"].ToString());
+                                    krnek.ShowAsync();
                             }
                             else
                             {
+                                progress2.IsActive = false;
+                                progress2.Visibility = Visibility.Collapsed;
                                 var krnek = new MessageDialog(result["message"].ToString()); // error
                                 krnek.ShowAsync();
                             }
@@ -261,10 +291,20 @@ namespace EventHub
                         {
                             // output.Text = ex.ToString(); // error
                         }
+
                     }
+
                 }
+
             }
+            else
+            {
+                var toast = new MessageDialog("Napaka! Preveri vpisane podatke.");
+                toast.ShowAsync();
+            }
+            }
+        }
 
 
         }
-    }
+    

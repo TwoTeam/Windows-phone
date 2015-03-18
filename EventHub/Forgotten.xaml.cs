@@ -2,10 +2,12 @@
 using EventHub.Data;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Windows.Input;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -16,6 +18,18 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Net.Http;
+using Windows.UI.Popups;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure;
+using System.Diagnostics;
+using Windows.Data.Json;
+using Newtonsoft.Json;
+using Windows.UI.Notifications;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -85,7 +99,7 @@ namespace EventHub
         {
             // TODO: Save the unique state of the page here.
         }
-
+        //Button_Tapped
         #region NavigationHelper registration
 
         /// <summary>
@@ -112,5 +126,46 @@ namespace EventHub
         }
 
         #endregion
+
+        private async void Butn_send_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            using (var client = new HttpClient()) ///naredi client za povezavo
+            {
+                var value = new Dictionary<string, string>
+                 {
+                     {"email",Mejl.Text}
+                 };
+
+
+                var content = new FormUrlEncodedContent(value);
+                var response = await client.PostAsync("http://veligovsek.si/events/apis/forgotpassword.php", content);
+                var responsesString = await response.Content.ReadAsStringAsync();
+                JObject rezultati = JObject.Parse(responsesString);
+
+                foreach (var result in rezultati["result"])
+                {
+                    try
+                    {
+                        if (result["response"].ToString().ToLower() == "true")
+                        {
+                            this.Frame.Navigate(typeof(BasicPage1));
+                            var krnek = new MessageDialog(result["message"].ToString()); // error
+                            krnek.ShowAsync();
+                        }
+                        else
+                        {
+                            var krnek = new MessageDialog(result["message"].ToString()); // error
+                            krnek.ShowAsync();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //output.Text = ex.ToString(); // error
+                    }
+                }
+            }
+        }
+
+
     }
 }
