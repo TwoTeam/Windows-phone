@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="city" />
-    <RootPropertyPathName Name="date" />
-    <RootPropertyPathName Name="name" />
-    <RootPropertyPathName Name="picture_url" />
+    <RootPropertyPathName Name="end" />
+    <RootPropertyPathName Name="start" />
+    <RootPropertyPathName Name="description" />
+    <RootPropertyPathName Name="title" />
+    <RootPropertyPathName Name="image" />
     <RootPropertyPathName Name="DefaultViewModel" />
     <RootPropertyPathName Name="Item" />
     <RootPropertyPathName Name="SecondGroup" />
@@ -51,10 +52,9 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="RenderTransformOrigin" />
-      <RootProperty Name="MaxHeight" />
+      <RootProperty Name="FontWeight" />
       <RootProperty Name="Style" />
       <RootProperty Name="CharacterSpacing" />
-      <RootProperty Name="FontWeight" />
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
@@ -115,7 +115,6 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Margin" />
       <RootProperty Name="ItemTemplate" />

@@ -8,6 +8,7 @@ namespace EventHub
 {
 
 
+
     public class Rootobject
     {
         public Class1[] Property1 { get; set; }
@@ -15,11 +16,18 @@ namespace EventHub
 
     public class Class1
     {
-        public string name { get; set; }
-        public string picture_url { get; set; }
+        public string id { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+        public string image { get; set; }
+        public string start { get; set; }
+        public string end { get; set; }
+        public string location { get; set; }
         public string city { get; set; }
-        public string date { get; set; }
+        public string fb_id { get; set; }
     }
+
+
 
 
 

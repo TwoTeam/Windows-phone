@@ -1,1 +1,1 @@
-C:\Users\Klemen\Desktop\nedela\EventHub\EventHub.csproj;neutral
+C:\Users\Klemen\Desktop\Eventhub\EventHub\EventHub.csproj;neutral

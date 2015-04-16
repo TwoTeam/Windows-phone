@@ -126,7 +126,9 @@ namespace EventHub
             HttpClient http = new HttpClient();
 
 
-            var response = await http.GetStringAsync("http://www.veligovsek.si/events/apis/events.php");
+            var response = await http.GetStringAsync("http://veligovsek.si/events/apis/facebook_events.php?city=Velenje");
+
+            //var FSfeed = JsonConvert.DeserializeObject<Class1>(response);
 
             var FSfeed = JsonConvert.DeserializeObject<List<Class1>>(response);
             Reviews.ItemsSource = FSfeed;
