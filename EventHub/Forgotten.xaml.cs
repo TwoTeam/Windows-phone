@@ -3,6 +3,7 @@ using EventHub.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -129,6 +130,11 @@ namespace EventHub
 
         private async void Butn_send_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            rng.IsActive = true;
+            rng.Visibility = Visibility.Visible;
+            string pattern = null;
+            pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
             using (var client = new HttpClient()) ///naredi client za povezavo
             {
                 var value = new Dictionary<string, string>
@@ -142,18 +148,24 @@ namespace EventHub
                 var responsesString = await response.Content.ReadAsStringAsync();
                 JObject rezultati = JObject.Parse(responsesString);
 
+                if (Regex.IsMatch(Mejl.Text, pattern))
+                { 
                 foreach (var result in rezultati["result"])
                 {
                     try
                     {
                         if (result["response"].ToString().ToLower() == "true")
                         {
-                            this.Frame.Navigate(typeof(BasicPage1));
+                            this.Frame.Navigate(typeof(PivotPage));
+                            rng.IsActive = false;
+                            rng.Visibility = Visibility.Collapsed;
                             var krnek = new MessageDialog(result["message"].ToString()); // error
                             krnek.ShowAsync();
                         }
                         else
                         {
+                            rng.IsActive = false;
+                            rng.Visibility = Visibility.Collapsed;
                             var krnek = new MessageDialog(result["message"].ToString()); // error
                             krnek.ShowAsync();
                         }
@@ -163,6 +175,15 @@ namespace EventHub
                         //output.Text = ex.ToString(); // error
                     }
                 }
+                }
+                else
+                {
+                    rng.IsActive = false;
+                    rng.Visibility = Visibility.Collapsed;
+                    var toast = new MessageDialog("Napaka! Preveri vpisane podatke.");
+                    toast.ShowAsync();
+                }
+
             }
         }
 

@@ -1,1 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Files><file>\EventHub.exe</file></Files>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Files>
+  <file>\EventHub.exe</file>
+  <file>\Hyak.Common.dll</file>
+  <file>\Microsoft.Azure.Common.dll</file>
+  <file>\Microsoft.Threading.Tasks.dll</file>
+  <file>\Microsoft.Threading.Tasks.Extensions.dll</file>
+  <file>\Microsoft.WindowsAzure.Management.Sql.dll</file>
+  <file>\Newtonsoft.Json.dll</file>
+  <file>\System.Net.Http.Extensions.dll</file>
+  <file>\System.Net.Http.Primitives.dll</file>
+</Files>

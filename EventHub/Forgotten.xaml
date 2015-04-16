@@ -8,8 +8,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel.Item, RelativeSource={RelativeSource Self}}"
-    d:DataContext="{Binding Groups[0].Items[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    d:DataContext="{Binding Groups[0].Items[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FFFF9F00" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Background>
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
@@ -44,8 +49,13 @@
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
             <TextBlock Height="51" Margin="0,10,0,0" TextWrapping="Wrap" Text="Enter your registered email and we'll send you new password." VerticalAlignment="Top" FontSize="18.667" Foreground="#FFF59D18"/>
             <TextBox x:Name="Mejl" Margin="0,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email" Height="37" />
-            <Button x:Name="Butn_send" Content="SEND" HorizontalAlignment="Stretch" Margin="0,207,0,0" VerticalAlignment="Bottom" Tapped="Butn_send_Tapped"/>
-            <TextBox x:Name="Usernejm" HorizontalAlignment="Left" Height="4" Margin="10,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="342" PlaceholderText="Username"/>
+            <Button x:Name="Butn_send" Content="SEND" HorizontalAlignment="Stretch" Margin="0,0,0,79" VerticalAlignment="Bottom" Tapped="Butn_send_Tapped"/>
+            <ProgressRing x:Name="rng" HorizontalAlignment="Left" Margin="112,255,0,0" VerticalAlignment="Top" Height="102" Width="112">
+                <ProgressRing.Background>
+                    <ImageBrush Stretch="Fill"/>
+                </ProgressRing.Background>
+            </ProgressRing>
+           
 
         </Grid>
     </Grid>

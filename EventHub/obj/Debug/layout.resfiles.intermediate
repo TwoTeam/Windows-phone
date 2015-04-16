@@ -1,4 +1,13 @@
+Assets\1.jpg
+Assets\150x150.png
+Assets\2.jpg
+Assets\3.jpg
+Assets\30x30.png
+Assets\4.jpg
+Assets\5.jpg
+Assets\6.jpg
 Assets\BadgeLogo.scale-240.png
+Assets\live-concert-388160_1024.png
 Assets\Logo.scale-240.png
 Assets\SmallLogo.scale-240.png
 Assets\SplashScreen.scale-100.png
@@ -10,10 +19,12 @@ Assets\StoreLogo.scale-100.png
 Assets\StoreLogo.scale-140.png
 Assets\StoreLogo.scale-240.png
 Assets\WideLogo.scale-240.png
+About.xbf
 App.xbf
 BasicPage1.xbf
 EventHub.xr.xml
 Forgotten.xbf
+MainPage.xbf
 StartPage.xbf
 Common\ReadMe.txt
 DataModel\SampleData.json

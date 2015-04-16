@@ -46,8 +46,6 @@ namespace EventHub
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
 
-        private HttpClient httpClient;
-        private HttpResponseMessage response;
 
         public PivotPage()
         {
@@ -192,6 +190,7 @@ namespace EventHub
 
         private async void Butn_login_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            //this.Frame.Navigate(typeof(BasicPage1));
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
 
             using (var client = new HttpClient()) ///naredi client za povezavo
@@ -222,10 +221,12 @@ namespace EventHub
                         }
                         else
                         {
+                            this.Frame.Navigate(typeof(BasicPage1));
+
                             progress1.IsActive = false;
                             progress1.Visibility = Visibility.Collapsed;
-                            var krnek = new MessageDialog(result["message"].ToString()); // error
-                            krnek.ShowAsync();
+                            //var krnek = new MessageDialog(result["message"].ToString()); // error
+                            //krnek.ShowAsync();
                         }
                     }
                     catch (Exception ex)
@@ -234,6 +235,8 @@ namespace EventHub
                     }
                 }
             }
+            this.Frame.Navigate(typeof(BasicPage1));
+            //anthony robinson
         }
 
 
