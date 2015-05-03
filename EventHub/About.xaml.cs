@@ -30,6 +30,8 @@ using Microsoft.WindowsAzure;
 using System.Diagnostics;
 using Windows.Data.Json;
 using Newtonsoft.Json;
+using Windows.UI.StartScreen;
+using Windows.Media.Capture;
 using Windows.UI.Notifications;
 using Windows.System;
 using Windows.ApplicationModel.Email;
@@ -55,6 +57,7 @@ namespace EventHub
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
 
         private async void email_Click(object sender, RoutedEventArgs e)
@@ -82,7 +85,12 @@ namespace EventHub
         }
 
 
-
+        void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
+        {
+            e.Handled = true;
+            Windows.Phone.UI.Input.HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+            this.Frame.Navigate(typeof(PivotPage));
+        }
 
 
 

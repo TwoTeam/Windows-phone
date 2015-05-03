@@ -30,8 +30,11 @@ using Microsoft.WindowsAzure;
 using System.Diagnostics;
 using Windows.Data.Json;
 using Newtonsoft.Json;
-using Windows.UI.Notifications;
-//using Microsoft.Phone.Scheduler;
+using Windows.UI.StartScreen;
+using Windows.Media.Capture;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using System.Runtime.Serialization;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -57,6 +60,8 @@ namespace EventHub
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+
         }
 
         /// <summary>
@@ -170,10 +175,21 @@ namespace EventHub
         /// </summary>
         /// <param name="e">Provides data for navigation methods and event
         /// handlers that cannot cancel the navigation request.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+            HttpClient http = new HttpClient();
+            string str = ((ComboBoxItem)cbox.SelectedItem).Content.ToString();
+            var response = await http.GetStringAsync("http://veligovsek.si/events/apis/facebook_events.php?city=" + str);
+
+            var FSfeed = JsonConvert.DeserializeObject<List<Class1>>(response);
+
+            Reviews.ItemsSource = FSfeed;
+            
+            //test.Text = uporabnik.user;
         }
+
+
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
@@ -182,132 +198,167 @@ namespace EventHub
 
         #endregion
 
-
-        private void Text_Forgot_Tapped(object sender, TappedRoutedEventArgs e)
+        public const string appbarTileId = "MySecondaryTile";
+        private void ToggleAppBarButton(bool showPinButton)
         {
-            this.Frame.Navigate(typeof(ItemPage));
+            if (showPinButton)
+            {
+                this.PinUnPinCommandButton.Label = "Pin to Start";
+            }
+            else
+            {
+                this.PinUnPinCommandButton.Label = "Unpin from Start";
+            }
+
+            this.PinUnPinCommandButton.UpdateLayout();
         }
 
-        private async void Butn_login_Tapped(object sender, TappedRoutedEventArgs e)
+        void Init()
         {
-            //this.Frame.Navigate(typeof(BasicPage1));
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            ToggleAppBarButton(!SecondaryTile.Exists(PivotPage.appbarTileId));
+        }
+        private async void PinUnPinCommandButton_Click(object sender, RoutedEventArgs e)
+        {
+            string displayName = "EventHub";
+            string tileActivationArguments = PivotPage.appbarTileId + " was pinned at=" + DateTime.Now.ToLocalTime().ToString();
+            Uri square150x150Logo = new Uri("ms-appx:///Assets/150x150.png");
+            TileSize newTileDesiredSize = TileSize.Square150x150;
+
+            SecondaryTile secondaryTile = new SecondaryTile(PivotPage.appbarTileId,
+                                                displayName,
+                                                tileActivationArguments,
+                                                square150x150Logo,
+                                                TileSize.Square150x150);
+
+            secondaryTile.VisualElements.ShowNameOnSquare150x150Logo = true;
+            secondaryTile.VisualElements.ForegroundText = ForegroundText.Dark;
+            secondaryTile.VisualElements.Square30x30Logo = new Uri("ms-appx:///Assets/30x30.png");
+
+            //Windows.Foundation.Rect rect = BasicPage1.GetElementRect
+            Windows.UI.Popups.Placement placement = Windows.UI.Popups.Placement.Above;
+
+            bool isPinned = true;
+            await secondaryTile.RequestCreateAsync();
+        }
+
+        private void about_click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(About));
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SignIn));
+        }
+
+        private void capture_Click(object sender, RoutedEventArgs e)
+        {
+            string str = ((ComboBoxItem)cbox.SelectedItem).Content.ToString();
+        }
+
+        private void Reviews_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+            Class1 myobject = Reviews.SelectedItem as Class1;
+
+         
+            Frame.Navigate(typeof(Event_detail), myobject);
+            
+            //ena.Text = myobject.id;
+        }
+
+        private void Reviews_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            FrameworkElement senderElement = sender as FrameworkElement;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
+            flyoutBase.ShowAt(senderElement);
+
+            FrameworkElement element = (FrameworkElement)e.OriginalSource;
+             if (element.DataContext != null && element.DataContext is Class1)
+             {
+                 Class1 selectedOne = (Class1)element.DataContext;
+                 // rest of the code
+                 //ena.Text = selectedOne.id;
+                 ajdi.aj = selectedOne.id;
+                 //asd.Text = ajdi.aj + " ";
+             }
+
+        }
+
+
+        private async void pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HttpClient http = new HttpClient();
+            string str = ((ComboBoxItem)cbox.SelectedItem).Content.ToString();
+            var response = await http.GetStringAsync("http://veligovsek.si/events/apis/facebook_events.php?city=" + str);
+            var FSfeed = JsonConvert.DeserializeObject<List<Class1>>(response);
+
+            Reviews.ItemsSource = FSfeed;
+        }
+
+
+
+        private async void fav_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void hid_Click(object sender, RoutedEventArgs e)
+        {
+            //Class1 myobject = Reviews.SelectedItem as Class1;
+            //ena.Text = ajdi.aj;
+            //dva.Text = uporabnik.user;
 
             using (var client = new HttpClient()) ///naredi client za povezavo
             {
                 var values = new Dictionary<string, string>
                  {
-                     {"user",Text_email1.Text}, 
-                     {"password",Pass.Password} 
+                     {"user", "xklemenx@gmail.com"},
+                     {"event", "218"}
                  };
 
-                progress1.IsActive = true;
-                progress1.Visibility = Visibility.Visible;
+                progress2.IsActive = true;
+                progress2.Visibility = Visibility.Visible;
 
                 var content = new FormUrlEncodedContent(values);
-                var response = await client.PostAsync("http://veligovsek.si/events/apis/login.php", content);
+                var response = await client.PostAsync("http://www.veligovsek.si/events/apis/hide.php", content);
                 var responsesString = await response.Content.ReadAsStringAsync();
                 JObject rezultati = JObject.Parse(responsesString);
-
                 foreach (var result in rezultati["result"])
                 {
+
                     try
                     {
+
                         if (result["response"].ToString().ToLower() == "true")
                         {
-                            this.Frame.Navigate(typeof(BasicPage1));
-                            progress1.IsActive = false;
-                            progress1.Visibility = Visibility.Collapsed;
+                            progress2.IsActive = false;
+                            progress2.Visibility = Visibility.Collapsed;
+                            var toast = new MessageDialog("success!");
+                            toast.ShowAsync();
                         }
                         else
                         {
-                            this.Frame.Navigate(typeof(BasicPage1));
+                            progress2.IsActive = false;
+                            progress2.Visibility = Visibility.Collapsed;
+                            var krnek = new MessageDialog(result["message"].ToString()); // error
+                            krnek.ShowAsync();
 
-                            progress1.IsActive = false;
-                            progress1.Visibility = Visibility.Collapsed;
-                            //var krnek = new MessageDialog(result["message"].ToString()); // error
-                            //krnek.ShowAsync();
                         }
                     }
                     catch (Exception ex)
                     {
-                        //output.Text = ex.ToString(); // error
+                        //output.Text = ex.ToString();  error
+                        
                     }
                 }
             }
-            this.Frame.Navigate(typeof(BasicPage1));
-            //anthony robinson
         }
 
 
-
-        private async void Butn_register_Tapped(object sender, RoutedEventArgs e)
-        {
-            string pattern = null;
-            pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            //string email = Text_email.Text;
-            if (Pass1.Password == Pass2.Password && Regex.IsMatch(Text_email.Text, pattern))
-            {
-                using (var client = new HttpClient()) ///naredi client za povezavo
-                {
-                    var values = new Dictionary<string, string>
-                 {
-                     {"username",Text_username.Text},
-                     {"name",Text_name.Text}, 
-                     {"surname",Text_surname.Text}, 
-                     {"password", Pass1.Password}, 
-                     {"email",Text_email.Text} 
-                 };
+    }
+}
 
 
-                    progress2.IsActive = true;
-                    progress2.Visibility = Visibility.Visible;
-
-                    var content = new FormUrlEncodedContent(values);
-                    var response = await client.PostAsync("http://veligovsek.si/events/apis/register.php", content);
-                    var responsesString = await response.Content.ReadAsStringAsync();
-                    JObject rezultati = JObject.Parse(responsesString);
-
-                    foreach (var result in rezultati["result"])
-                    {
-
-                        try
-                        {
-
-                            if (result["response"].ToString().ToLower() == "true")
-                            {
-                                progress2.IsActive = false;
-                                progress2.Visibility = Visibility.Collapsed;
-                                    var krnek = new MessageDialog(result["message"].ToString());
-                                    krnek.ShowAsync();
-                            }
-                            else
-                            {
-                                progress2.IsActive = false;
-                                progress2.Visibility = Visibility.Collapsed;
-                                var krnek = new MessageDialog(result["message"].ToString()); // error
-                                krnek.ShowAsync();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            // output.Text = ex.ToString(); // error
-                        }
-
-                    }
-
-                }
-
-            }
-            else
-            {
-                var toast = new MessageDialog("Napaka! Preveri vpisane podatke.");
-                toast.ShowAsync();
-            }
-            }
-        }
-
-
-        }
+        
     

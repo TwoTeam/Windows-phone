@@ -40,7 +40,7 @@
                 <ColumnDefinition Width="201*"/>
             </Grid.ColumnDefinitions>
 
-            <ListView  x:Name="Reviews" Grid.ColumnSpan="2" Width="400" Margin="0,0,0,0">
+            <ListView  x:Name="Reviews" Grid.ColumnSpan="2" Margin="40,0,42,0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
@@ -50,13 +50,13 @@
                             <StackPanel Grid.Column="1" VerticalAlignment="Top" Orientation="Vertical" Margin="0,0,0,0">
                                 <TextBlock Text="{Binding title}" FontWeight="Bold"  TextWrapping="Wrap"/>
                                 <TextBlock Text=" "/>
-                                <TextBlock Text="{Binding description}" TextWrapping="Wrap"  HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding description}" TextWrapping="WrapWholeWords"  HorizontalAlignment="Left"/>
                                 <TextBlock Text=" "/>
                                 <TextBlock Text="{Binding start}"/>
                                 <TextBlock Text="{Binding end}"/>
                                 <TextBlock Text=" "/>
                                 <TextBlock Text=" "/>
-                                
+
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -68,7 +68,12 @@
         </Grid>
         <Grid x:Name="asd" HorizontalAlignment="Left" Height="129" Grid.RowSpan="2" VerticalAlignment="Top" Width="400">
 
-            <AppBarButton RenderTransformOrigin="0.5,0.5" Height="55" Width="67" Margin="153,33,0,0" Icon="Home">
+            <AppBarButton RenderTransformOrigin="0.5,0.5" Height="55" Width="67" Margin="66,31,0,0" Icon="Home">
+                <AppBarButton.RenderTransform>
+                    <CompositeTransform ScaleX="2" ScaleY="2"/>
+                </AppBarButton.RenderTransform>
+            </AppBarButton>
+            <AppBarButton x:Name="city" RenderTransformOrigin="0.5,0.5" Height="55" Width="67" Margin="231,34,0,0" Icon="View">
                 <AppBarButton.RenderTransform>
                     <CompositeTransform ScaleX="2" ScaleY="2"/>
                 </AppBarButton.RenderTransform>

@@ -26,20 +26,10 @@ C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\ProjectArchitectures.txt
 C:\Users\Klemen\Desktop\EventHub\EventHub\bin\Debug\Forgotten.xbf
-C:\Users\Klemen\Desktop\EventHub\EventHub\bin\Debug\StartPage.xbf
 C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\Forgotten.g.i.cs
 C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\Forgotten.g.cs
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\StartPage.g.i.cs
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\StartPage.g.cs
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\StartPage.xaml
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\StartPage.xbf
 C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\Forgotten.xaml
 C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\Forgotten.xbf
-C:\Users\Klemen\Desktop\EventHub\EventHub\bin\Debug\BasicPage1.xbf
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\BasicPage1.g.i.cs
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\BasicPage1.g.cs
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\BasicPage1.xaml
-C:\Users\Klemen\Desktop\EventHub\EventHub\obj\Debug\BasicPage1.xbf
 C:\Users\Klemen\Desktop\EventHub\EventHub\bin\Debug\Hyak.Common.dll
 C:\Users\Klemen\Desktop\EventHub\EventHub\bin\Debug\Microsoft.Azure.Common.dll
 C:\Users\Klemen\Desktop\EventHub\EventHub\bin\Debug\Microsoft.Threading.Tasks.dll
@@ -293,28 +283,103 @@ C:\Users\Klemen\Desktop\nedela\EventHub\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Klemen\Desktop\nedela\EventHub\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Klemen\Desktop\nedela\EventHub\obj\Debug\ProjectArchitectures.txt
 C:\Users\Klemen\Desktop\Eventhub\EventHub\bin\Debug\About.xbf
-C:\Users\Klemen\Desktop\Eventhub\EventHub\bin\Debug\MainPage.xbf
 C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\About.g.i.cs
 C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\About.g.cs
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\MainPage.g.i.cs
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\MainPage.g.cs
 C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\About.xaml
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\MainPage.xaml
 C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\About.xbf
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\MainPage.xbf
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\layout.resfiles
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\layout.resfiles.intermediate
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\Resources.resfiles
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\Resources.resfiles.intermediate
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\pri.resfiles
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\pri.resfiles.intermediate
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\priconfig.xml
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Hyak.Common\priconfig.xml.intermediate
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\layout.resfiles
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\layout.resfiles.intermediate
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\Resources.resfiles
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\Resources.resfiles.intermediate
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\pri.resfiles
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\pri.resfiles.intermediate
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\priconfig.xml
-C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\Microsoft.Azure.Common\priconfig.xml.intermediate
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignIn.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignIn.g.cs
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignUp.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignUp.g.cs
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignUp.xaml
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignUp.xbf
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignIn.xaml
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\SignIn.xbf
+C:\Users\Klemen\Desktop\Eventhub\EventHub\bin\Debug\SignIn.xbf
+C:\Users\Klemen\Desktop\Eventhub\EventHub\bin\Debug\SignUp.xbf
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\StartPage.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\StartPage.g.cs
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\StartPage.xaml
+C:\Users\Klemen\Desktop\Eventhub\EventHub\obj\Debug\StartPage.xbf
+C:\Users\Klemen\Desktop\Eventhub\EventHub\bin\Debug\StartPage.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\App.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\About.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Forgotten.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\SignIn.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\SignUp.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\StartPage.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\EventHub.xr.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\EventHub.exe
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\EventHub.pdb
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\resources.pri
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\AppxManifest.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\EventHub.build.appxrecipe
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Hyak.Common.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.Azure.Common.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.WindowsAzure.Management.Sql.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Hyak.Common.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.Azure.Common.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Microsoft.WindowsAzure.Management.Sql.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\App.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\App.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\About.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\About.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Forgotten.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Forgotten.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignIn.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignIn.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignUp.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignUp.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\StartPage.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\StartPage.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\App.xaml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\About.xaml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Forgotten.xaml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignIn.xaml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignUp.xaml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\App.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\About.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Forgotten.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignIn.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\SignUp.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\XamlSaveStateFile.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\StartPage.xaml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\StartPage.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\EventHub.exe
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\EventHub.pdb
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Hyak.Common\en\Hyak.Common.Properties.Resources.resw
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Microsoft.Azure.Common\en\Microsoft.Azure.Common.Properties.Resources.resw
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\EventHub.csproj.GenerateResource.Cache
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Hyak.Common.pri
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Hyak.Common\qualifiers.txt
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Microsoft.Azure.Common.pri
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Microsoft.Azure.Common\qualifiers.txt
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\priconfig.xml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\priconfig.xml.intermediate
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\layout.resfiles
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\layout.resfiles.intermediate
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\resources.resfiles
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\resources.resfiles.intermediate
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\pri.resfiles
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\pri.resfiles.intermediate
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\qualifiers.txt
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\ProjectArchitectures.txt
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\bin\Debug\Event_detail.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Event_detail.g.i.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Event_detail.g.cs
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Event_detail.xaml
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\Event_detail.xbf
+C:\Users\Klemen\Desktop\Eventhub - kopija\EventHub\obj\Debug\EventHub.csprojResolveAssemblyReference.cache

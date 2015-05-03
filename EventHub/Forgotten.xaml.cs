@@ -156,7 +156,7 @@ namespace EventHub
                     {
                         if (result["response"].ToString().ToLower() == "true")
                         {
-                            this.Frame.Navigate(typeof(PivotPage));
+                            this.Frame.Navigate(typeof(SignIn));
                             rng.IsActive = false;
                             rng.Visibility = Visibility.Collapsed;
                             var krnek = new MessageDialog(result["message"].ToString()); // error

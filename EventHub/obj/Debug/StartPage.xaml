@@ -11,7 +11,7 @@
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="#FFFF9F00" Offset="1"/>
+            <GradientStop Color="#FFFFAD5C" Offset="1"/>
         </LinearGradientBrush>
     </Page.Background>
     <Page.Transitions>
@@ -26,67 +26,102 @@
 
 
     <Grid Margin="0,5.333,0,-0.333" Height="640" Width="400">
-        <Pivot x:Uid="Pivot" Title="EventHub" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True">
+        <Pivot x:ConnectionId='1' x:Uid="Pivot" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True"                                          >
             <!--Pivot item one-->
 
-            <PivotItem x:Name="Pivot_Login"
-				x:Uid="PivotItem1"
-				Margin="0,15,0,-0.5"
-				Header="Login"
+            <PivotItem x:Name="Pivot_events"
+				x:Uid="events"
+				Margin="0,0,0,0"
+				Header="events"
 				DataContext="{Binding FirstGroup}"
 				d:DataContext="{Binding Groups[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
 				CommonNavigationTransitionInfo.IsStaggerElement="True" Foreground="#FF756D6D">
-                <Grid Margin="0,0,0,0.333">
-                    <Button x:ConnectionId='2' x:Name="Butn_login" Content="LOGIN" HorizontalAlignment="Stretch" Margin="35,0,40,52" VerticalAlignment="Bottom" Foreground="White"                           />
-                    <TextBox x:Name="Text_email1" Margin="10,26,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" PlaceholderText="Email"/>
-                    <PasswordBox x:Name="Pass" Margin="10,88,10,0" VerticalAlignment="Top" PlaceholderText="Password"/>
-                    <TextBlock x:ConnectionId='3' x:Name="Text_Forgot" HorizontalAlignment="Left" Margin="10,168,0,0" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Text="Forgot your password?" VerticalAlignment="Top"                             FontWeight="Bold">
-                        <TextBlock.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFFFCC00" Offset="0.984"/>
-                                <GradientStop Color="#FFFFD100" Offset="1"/>
-                                <GradientStop Color="#FF514200" Offset="1"/>
-                            </LinearGradientBrush>
-                        </TextBlock.Foreground>
-                    </TextBlock>
-                    <ProgressRing x:Name="progress1" HorizontalAlignment="Center" Margin="133,252,137,131" VerticalAlignment="Center" Width="130" Height="130">
-                        <ProgressRing.Background>
-                            <ImageBrush Stretch="Fill"/>
-                        </ProgressRing.Background>
-                    </ProgressRing>
+                <Grid HorizontalAlignment="Left" Height="538" VerticalAlignment="Top" Width="400">
+                    <ListView x:ConnectionId='2' x:Name="Reviews" Margin="0,0,0,0" Grid.Row="1"                                                   >
+                        <FlyoutBase.AttachedFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem x:ConnectionId='3' x:Name="fav" Text="Favourite"                   />
+                                <MenuFlyoutItem x:ConnectionId='4' x:Name="hid" Text="Hide"                   />
+                            </MenuFlyout>
+                        </FlyoutBase.AttachedFlyout>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="110" Height="110">
+                                        <Image Source="{Binding image}" Stretch="UniformToFill" />
 
+                                    </Border>
+
+                                    <TextBlock Text=" " />
+
+                                    <StackPanel x:Name="st1" Grid.Column="1" VerticalAlignment="Top" Orientation="Vertical" Margin="10,0,0,0">
+
+                                        <TextBlock FontWeight="Bold" Text="{Binding title}" TextWrapping="Wrap"/>
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,0">
+                                            <TextBlock Margin="10,0,0,0" Text="Location:" FontWeight="Bold"/>
+                                            <TextBlock Margin="10,0,0,0" Text="{Binding location}"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,0">
+                                            <TextBlock Margin="10,0,0,0" Text="Start:" FontWeight="Bold"/>
+                                            <TextBlock Margin="10,0,0,0" Text="{Binding start}"/>
+                                        </StackPanel>
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,0">
+                                            <TextBlock Margin="10,0,0,0" Text="End:" FontWeight="Bold"/>
+                                            <TextBlock Margin="10,0,0,0" Text="{Binding end}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </Grid>
+
 
             </PivotItem>
             <!--Pivot item two-->
-            <PivotItem x:Name="Pivot_Signup"
-				x:Uid="PivotItem2"
+            <PivotItem x:Name="Pivot_city"
+				x:Uid="city"
 				Margin="10,15,0,-0.5"
-				Header="Sign up"
+				Header="city"
 				DataContext="{Binding SecondGroup}"
 				d:DataContext="{Binding Groups[1], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}" HorizontalAlignment="Left" Width="380">
+                <Grid Height="528" VerticalAlignment="Top" Width="380">
+                    <ComboBox x:Name="cbox" Height="343" Margin="14,142,33,43" VerticalAlignment="Center" >
+                        <ComboBoxItem Content="Celje"/>
+                        <ComboBoxItem Content="Maribor"/>
+                        <ComboBoxItem Content="Ljubljana"/>
+                        <ComboBoxItem Content="Jesenice"/>
+                        <ComboBoxItem Content="Domžale"/>
+                        <ComboBoxItem Content="Piran"/>
+                        <ComboBoxItem Content="Velenje"  IsSelected="True"/>
+                        <ComboBoxItem Content="Slovenj Gradec"/>
+                    </ComboBox>
+                    <TextBlock x:Name="city_select" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" Text="Select city:" Width="197" FontSize="18" VerticalAlignment="Top" Foreground="#FFFF892C" Margin="0,36,0,0"/>
+                </Grid>
 
-                <ScrollViewer Margin="0,0,0,-120">
-
-                    <Grid Height="867" Width="392">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="11*"/>
-                            <ColumnDefinition Width="17*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox x:Name="Text_name" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Name" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="Text_surname" Margin="0,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Surname" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="Text_email" Margin="0,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Email" Grid.ColumnSpan="2"/>
-                        <PasswordBox x:Name="Pass1" Margin="0,245,6,0" VerticalAlignment="Top" PlaceholderText="Password" Grid.ColumnSpan="2"/>
-                        <PasswordBox x:Name="Pass2" Margin="0,311,0,0" VerticalAlignment="Top" PlaceholderText="Repeat password" Grid.ColumnSpan="2"/>
-                        <Button x:ConnectionId='1' x:Name="Butn_register" Content="REGISTER" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35,361,54,0"                               Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="Text_username" Margin="0,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Username" Grid.ColumnSpan="2"/>
-                        <ProgressRing x:Name="progress2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="133,457,0,0" VerticalAlignment="Top" Width="100"/>
-                    </Grid>
-                </ScrollViewer>
                 <!--Double line list no text wrapping-->
             </PivotItem>
         </Pivot>
+        <ProgressRing x:Name="progress2" HorizontalAlignment="Left" Height="122" Margin="109,311,0,0" VerticalAlignment="Top" Width="150">
+            <ProgressRing.Background>
+                <ImageBrush Stretch="Fill"/>
+            </ProgressRing.Background>
+        </ProgressRing>
+
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar IsSticky="True" x:Name="appBar">
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="settings"/>
+                <AppBarButton x:ConnectionId='5' x:Name="PinUnPinCommandButton" Label="pin to start"                                    />
+                <AppBarButton x:ConnectionId='6' x:Name="about" Label="about"                    />
+                <AppBarButton x:ConnectionId='7' x:Name="logout" Label="log out"                     />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+
+    </Page.BottomAppBar>
 </Page>
     
 

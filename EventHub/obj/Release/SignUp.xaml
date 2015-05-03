@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="EventHub.SignUp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EventHub"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="Fill" ImageSource="Assets/live-concert-388160_1024.png"/>
+    </Page.Background>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="EventHub" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="sign up" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+        <Grid HorizontalAlignment="Left" Height="501" Margin="0,9.833,0,0" Grid.Row="1" VerticalAlignment="Top" Width="400">
+            <ScrollViewer Margin="0,0,0,-139">
+
+                <Grid Height="867" Width="392">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="17*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Header="Name" x:Name="Text_name" Margin="0,69,-0.333,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <TextBox Header="Surname" x:Name="Text_surname" Margin="-1,139,0.667,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="" Grid.ColumnSpan="2"/>
+                    <TextBox Header="Email" x:Name="Text_email" Margin="1,209,-0.333,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="" Grid.ColumnSpan="2"/>
+                    <PasswordBox Header="Password" x:Name="Pass1" Margin="1,279,-0.333,0" VerticalAlignment="Top" PlaceholderText="" Grid.ColumnSpan="2"/>
+                    <PasswordBox Header="Repeat password" x:Name="Pass2" Margin="1,349,-1.333,0" VerticalAlignment="Top" PlaceholderText="" Grid.ColumnSpan="2"/>
+                    <TextBox Header="Username" x:Name="Text_username" Margin="0,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="" Grid.ColumnSpan="2"/>
+                    <ProgressRing x:Name="progress2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="100" Margin="133,453,0,0" VerticalAlignment="Top" Width="100"/>
+                    <Button x:ConnectionId='1' x:Name="Butn_register" Content="REGISTER" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-1,576,10.667,0"                               Width="382" Grid.ColumnSpan="2" BorderBrush="#FFFF7604"/>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+
+
+        <!--TODO: Content should be placed within the following grid-->
+
+    </Grid>
+</Page>
+

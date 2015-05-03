@@ -124,33 +124,35 @@ namespace EventHub.EventHub_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[12];
+            _typeNameTable = new string[13];
             _typeNameTable[0] = "EventHub.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "EventHub.BasicPage1";
-            _typeNameTable[4] = "EventHub.Common.NavigationHelper";
-            _typeNameTable[5] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[6] = "EventHub.Common.ObservableDictionary";
-            _typeNameTable[7] = "Object";
-            _typeNameTable[8] = "String";
-            _typeNameTable[9] = "EventHub.ItemPage";
-            _typeNameTable[10] = "EventHub.MainPage";
-            _typeNameTable[11] = "EventHub.PivotPage";
+            _typeNameTable[3] = "EventHub.Event_detail";
+            _typeNameTable[4] = "EventHub.ItemPage";
+            _typeNameTable[5] = "EventHub.Common.NavigationHelper";
+            _typeNameTable[6] = "Windows.UI.Xaml.DependencyObject";
+            _typeNameTable[7] = "EventHub.Common.ObservableDictionary";
+            _typeNameTable[8] = "Object";
+            _typeNameTable[9] = "String";
+            _typeNameTable[10] = "EventHub.SignIn";
+            _typeNameTable[11] = "EventHub.SignUp";
+            _typeNameTable[12] = "EventHub.PivotPage";
 
-            _typeTable = new global::System.Type[12];
+            _typeTable = new global::System.Type[13];
             _typeTable[0] = typeof(global::EventHub.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::EventHub.BasicPage1);
-            _typeTable[4] = typeof(global::EventHub.Common.NavigationHelper);
-            _typeTable[5] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[6] = typeof(global::EventHub.Common.ObservableDictionary);
-            _typeTable[7] = typeof(global::System.Object);
-            _typeTable[8] = typeof(global::System.String);
-            _typeTable[9] = typeof(global::EventHub.ItemPage);
-            _typeTable[10] = typeof(global::EventHub.MainPage);
-            _typeTable[11] = typeof(global::EventHub.PivotPage);
+            _typeTable[3] = typeof(global::EventHub.Event_detail);
+            _typeTable[4] = typeof(global::EventHub.ItemPage);
+            _typeTable[5] = typeof(global::EventHub.Common.NavigationHelper);
+            _typeTable[6] = typeof(global::Windows.UI.Xaml.DependencyObject);
+            _typeTable[7] = typeof(global::EventHub.Common.ObservableDictionary);
+            _typeTable[8] = typeof(global::System.Object);
+            _typeTable[9] = typeof(global::System.String);
+            _typeTable[10] = typeof(global::EventHub.SignIn);
+            _typeTable[11] = typeof(global::EventHub.SignUp);
+            _typeTable[12] = typeof(global::EventHub.PivotPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -186,12 +188,13 @@ namespace EventHub.EventHub_XamlTypeInfo
         }
 
         private object Activate_0_About() { return new global::EventHub.About(); }
-        private object Activate_3_BasicPage1() { return new global::EventHub.BasicPage1(); }
-        private object Activate_6_ObservableDictionary() { return new global::EventHub.Common.ObservableDictionary(); }
-        private object Activate_9_ItemPage() { return new global::EventHub.ItemPage(); }
-        private object Activate_10_MainPage() { return new global::EventHub.MainPage(); }
-        private object Activate_11_PivotPage() { return new global::EventHub.PivotPage(); }
-        private void MapAdd_6_ObservableDictionary(object instance, object key, object item)
+        private object Activate_3_Event_detail() { return new global::EventHub.Event_detail(); }
+        private object Activate_4_ItemPage() { return new global::EventHub.ItemPage(); }
+        private object Activate_7_ObservableDictionary() { return new global::EventHub.Common.ObservableDictionary(); }
+        private object Activate_10_SignIn() { return new global::EventHub.SignIn(); }
+        private object Activate_11_SignUp() { return new global::EventHub.SignUp(); }
+        private object Activate_12_PivotPage() { return new global::EventHub.PivotPage(); }
+        private void MapAdd_7_ObservableDictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.String, global::System.Object>)instance;
             var newKey = (global::System.String)key;
@@ -224,61 +227,70 @@ namespace EventHub.EventHub_XamlTypeInfo
                 xamlType = new global::EventHub.EventHub_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  EventHub.BasicPage1
+            case 3:   //  EventHub.Event_detail
                 userType = new global::EventHub.EventHub_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_BasicPage1;
+                userType.Activator = Activate_3_Event_detail;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  EventHub.ItemPage
+                userType = new global::EventHub.EventHub_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_ItemPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  EventHub.Common.NavigationHelper
+            case 5:   //  EventHub.Common.NavigationHelper
                 userType = new global::EventHub.EventHub_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  Windows.UI.Xaml.DependencyObject
+            case 6:   //  Windows.UI.Xaml.DependencyObject
                 xamlType = new global::EventHub.EventHub_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  EventHub.Common.ObservableDictionary
+            case 7:   //  EventHub.Common.ObservableDictionary
                 userType = new global::EventHub.EventHub_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_6_ObservableDictionary;
+                userType.DictionaryAdd = MapAdd_7_ObservableDictionary;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Object
+            case 8:   //  Object
                 xamlType = new global::EventHub.EventHub_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  String
+            case 9:   //  String
                 xamlType = new global::EventHub.EventHub_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  EventHub.ItemPage
+            case 10:   //  EventHub.SignIn
                 userType = new global::EventHub.EventHub_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_ItemPage;
+                userType.Activator = Activate_10_SignIn;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  EventHub.MainPage
+            case 11:   //  EventHub.SignUp
                 userType = new global::EventHub.EventHub_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_MainPage;
+                userType.Activator = Activate_11_SignUp;
+                userType.AddMemberName("NavigationHelper");
+                userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  EventHub.PivotPage
+            case 12:   //  EventHub.PivotPage
                 userType = new global::EventHub.EventHub_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_PivotPage;
+                userType.Activator = Activate_12_PivotPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
                 userType.SetIsLocalType();
@@ -289,32 +301,42 @@ namespace EventHub.EventHub_XamlTypeInfo
         }
 
 
-        private object get_0_BasicPage1_NavigationHelper(object instance)
-        {
-            var that = (global::EventHub.BasicPage1)instance;
-            return that.NavigationHelper;
-        }
-        private object get_1_BasicPage1_DefaultViewModel(object instance)
-        {
-            var that = (global::EventHub.BasicPage1)instance;
-            return that.DefaultViewModel;
-        }
-        private object get_2_ItemPage_NavigationHelper(object instance)
+        private object get_0_ItemPage_NavigationHelper(object instance)
         {
             var that = (global::EventHub.ItemPage)instance;
             return that.NavigationHelper;
         }
-        private object get_3_ItemPage_DefaultViewModel(object instance)
+        private object get_1_ItemPage_DefaultViewModel(object instance)
         {
             var that = (global::EventHub.ItemPage)instance;
             return that.DefaultViewModel;
         }
-        private object get_4_PivotPage_NavigationHelper(object instance)
+        private object get_2_SignIn_NavigationHelper(object instance)
+        {
+            var that = (global::EventHub.SignIn)instance;
+            return that.NavigationHelper;
+        }
+        private object get_3_SignIn_DefaultViewModel(object instance)
+        {
+            var that = (global::EventHub.SignIn)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_4_SignUp_NavigationHelper(object instance)
+        {
+            var that = (global::EventHub.SignUp)instance;
+            return that.NavigationHelper;
+        }
+        private object get_5_SignUp_DefaultViewModel(object instance)
+        {
+            var that = (global::EventHub.SignUp)instance;
+            return that.DefaultViewModel;
+        }
+        private object get_6_PivotPage_NavigationHelper(object instance)
         {
             var that = (global::EventHub.PivotPage)instance;
             return that.NavigationHelper;
         }
-        private object get_5_PivotPage_DefaultViewModel(object instance)
+        private object get_7_PivotPage_DefaultViewModel(object instance)
         {
             var that = (global::EventHub.PivotPage)instance;
             return that.DefaultViewModel;
@@ -327,40 +349,52 @@ namespace EventHub.EventHub_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "EventHub.BasicPage1.NavigationHelper":
-                userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.BasicPage1");
-                xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "NavigationHelper", "EventHub.Common.NavigationHelper");
-                xamlMember.Getter = get_0_BasicPage1_NavigationHelper;
-                xamlMember.SetIsReadOnly();
-                break;
-            case "EventHub.BasicPage1.DefaultViewModel":
-                userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.BasicPage1");
-                xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "EventHub.Common.ObservableDictionary");
-                xamlMember.Getter = get_1_BasicPage1_DefaultViewModel;
-                xamlMember.SetIsReadOnly();
-                break;
             case "EventHub.ItemPage.NavigationHelper":
                 userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.ItemPage");
                 xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "NavigationHelper", "EventHub.Common.NavigationHelper");
-                xamlMember.Getter = get_2_ItemPage_NavigationHelper;
+                xamlMember.Getter = get_0_ItemPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "EventHub.ItemPage.DefaultViewModel":
                 userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.ItemPage");
                 xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "EventHub.Common.ObservableDictionary");
-                xamlMember.Getter = get_3_ItemPage_DefaultViewModel;
+                xamlMember.Getter = get_1_ItemPage_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "EventHub.SignIn.NavigationHelper":
+                userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.SignIn");
+                xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "NavigationHelper", "EventHub.Common.NavigationHelper");
+                xamlMember.Getter = get_2_SignIn_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "EventHub.SignIn.DefaultViewModel":
+                userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.SignIn");
+                xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "EventHub.Common.ObservableDictionary");
+                xamlMember.Getter = get_3_SignIn_DefaultViewModel;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "EventHub.SignUp.NavigationHelper":
+                userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.SignUp");
+                xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "NavigationHelper", "EventHub.Common.NavigationHelper");
+                xamlMember.Getter = get_4_SignUp_NavigationHelper;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "EventHub.SignUp.DefaultViewModel":
+                userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.SignUp");
+                xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "EventHub.Common.ObservableDictionary");
+                xamlMember.Getter = get_5_SignUp_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "EventHub.PivotPage.NavigationHelper":
                 userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.PivotPage");
                 xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "NavigationHelper", "EventHub.Common.NavigationHelper");
-                xamlMember.Getter = get_4_PivotPage_NavigationHelper;
+                xamlMember.Getter = get_6_PivotPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "EventHub.PivotPage.DefaultViewModel":
                 userType = (global::EventHub.EventHub_XamlTypeInfo.XamlUserType)GetXamlTypeByName("EventHub.PivotPage");
                 xamlMember = new global::EventHub.EventHub_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "EventHub.Common.ObservableDictionary");
-                xamlMember.Getter = get_5_PivotPage_DefaultViewModel;
+                xamlMember.Getter = get_7_PivotPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }
